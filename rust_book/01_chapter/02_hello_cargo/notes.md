@@ -5,3 +5,11 @@ It generates the Cargo.toml file. (Tom's Obvious, Minimal Language) toml
 
 `cargo build`
 generates a Cargo.lock file and a target dir which is where the compiled code lives.  The target dir is what we should add to our gitignore.
+
+`cargo check` checks if can compile but doesn't compile an executable
+
+`cargo run` builds and runs the built executable.
+
+`cargo build --release` optimizes a for release-worthy code
+
+`cargo --list` shows the available commands with better descriptions that those above
