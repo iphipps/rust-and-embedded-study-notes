@@ -10,4 +10,11 @@ Formatting rust code
 
 >The & indicates that this argument is a reference, which gives you a way to let multiple parts of your code access one piece of data without needing to copy that data into memory multiple times. References are a complex feature, and one of Rust’s major advantages is how safe and easy it is to use references. You don’t need to know a lot of those details to finish this program. For now, all you need to know is that like variables, references are immutable by default. Hence, you need to write &mut guess rather than &guess to make it mutable. (Chapter 4 will explain references more thoroughly.)
 
+So at this point I'm seeing opportunities with my vim setup. I'd like to add https://github.com/racer-rust/racer and https://github.com/racer-rust/vim-racer look promising
+
+Scratch that, I actually just updated to use coc more heavily than before https://github.com/iphipps/dotfiles/commit/3aec722089622e981cdbe34dcd06bbb44bda14cf
+
+
+Pattern matching looks pretty cool.
+
 
