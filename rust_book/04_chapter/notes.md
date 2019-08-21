@@ -8,23 +8,23 @@ Rust is memory safe without a gardbage collector.
 It refers to what memory management system is being used at different times in the program.
 
 ### Stack vs heap
+
 Stack -- lifo - like a stack of plates
 Stack must have a known, fixed size.
 
 Heap -- -- like a restaurant seating chart.
-Anything that has variable size must be stored here.  Heap is less organized. 
-OS finds space that is big enough, marks it as being used and returns a pointer. (_allocating_ on the heap) 
-
+Anything that has variable size must be stored here. Heap is less organized.
+OS finds space that is big enough, marks it as being used and returns a pointer. (_allocating_ on the heap)
 
 Heap is slower, but can be faster if locations are close to each other; the processor doesn't need to jump around as much.
 
-For functions, arguments, including pointers to heap locations AND local variable are pushed to the stack.  After the function runs, stack vars are popped.
+For functions, arguments, including pointers to heap locations AND local variable are pushed to the stack. After the function runs, stack vars are popped.
 
 ### Ownership rules
 
-* values have an _owner_ valiable
-* there can only be one owner
-* value is dropped when owner goes out of scope
+- values have an _owner_ valiable
+- there can only be one owner
+- value is dropped when owner goes out of scope
 
 ### Variable scope
 
@@ -33,21 +33,22 @@ For functions, arguments, including pointers to heap locations AND local variabl
     let s = "hello";   // s is valid from this point forward
 
     // do stuff with s
-} 
+}
 ```
 
-* When s comes into scope, it is valid.
-* It remains valid until it goes out of scope.
+- When s comes into scope, it is valid.
+- It remains valid until it goes out of scope.
 
-### Memory and Allocation and The `String` Type 
+### Memory and Allocation and The `String` Type
 
 string literals are immutable and their value is known at compile time
 string is stored on the heap and can be mutated
+
 ```
 // ::from requests memore it needs.
 let mut s = String::from("hello");
 
-// traditionally GC will remove the old s heap memory.  
+// traditionally GC will remove the old s heap memory.
 // In rust though, an allocate must be 1-1 with a free
 s.push_str(", world!"); // push_str() appends a literal to a String
 
@@ -55,14 +56,13 @@ println!("{}", s); // This will print 'hello, world!'
 // enter drop
 ```
 
-
->Note: In C++, this pattern of deallocating resources at the end of an item’s lifetime is sometimes called Resource Acquisition Is Initialization (RAII). The drop function in Rust will be familiar to you if you’ve used RAII patterns.
-
+> Note: In C++, this pattern of deallocating resources at the end of an item’s lifetime is sometimes called Resource Acquisition Is Initialization (RAII). The drop function in Rust will be familiar to you if you’ve used RAII patterns.
 
 ```
 let s1 = String::from("hello");
 let s2 = s1;
 ```
+
 In the above example
 
 pointer to table
@@ -89,11 +89,12 @@ you cannot free memory twice.
 
 to avoid this rust moves s1 into s2. that is, s1 is invalidated.
 
-###  Variables and Date Interactions
+### Variables and Date Interactions
 
 #### Clone
 
 For deep copying of heap data.
+
 ```
 let s1 = String::from("hello");
 let s2 = s1.clone();
@@ -103,21 +104,23 @@ println!("s1 = {}, s2 = {}", s1, s2);
 ```
 
 #### Stack-Onlt Data: Copy
+
 ```
 let x = 5;
 let y = x;
 
 println!("x = {}, y = {}", x, y);
 ```
+
 They have none size, so there's no different between deep and shallow copying.
 
 Here are some of the types that are Copy:
 
-* All the integer types, such as u32.
-* The Boolean type, bool, with values true and false.
-* All the floating point types, such as f64.
-* The character type, char.
-* Tuples, if they only contain types that are also Copy. For example, (i32, i32) is Copy, but (i32, String) is not.
+- All the integer types, such as u32.
+- The Boolean type, bool, with values true and false.
+- All the floating point types, such as f64.
+- The character type, char.
+- Tuples, if they only contain types that are also Copy. For example, (i32, i32) is Copy, but (i32, String) is not.
 
 ### Function Ownership
 
@@ -180,6 +183,7 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
     a_string  // a_string is returned and moves out to the calling function
 }
 ```
+
 tuples can pass
 
 ```
@@ -198,13 +202,87 @@ fn calculate_length(s: String) -> (String, usize) {
 }
 ```
 
+## Referencing and Borrowing
+
+```
+fn main() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize { // s is a reference to a String
+    s.len()
+} // Here, s goes out of scope. But because it does not have ownership of what
+  // it refers to, nothing happens.
+```
+
+> The &s1 syntax lets us create a reference that refers to the value of s1 but does not own it. Because it does not own it, the value it points to will not be dropped when the reference goes out of scope.
+
+Note you cannot modify borrowed value. Above calculate_length returns a new value derrived from the borrowed String, but does not attempt to modify it.
+
+### Mutable references
+
+```
+fn main() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
+
+allows us to mutate
+
+a caveat:
+
+> But mutable references have one big restriction: you can have only one mutable reference to a particular piece of data in a particular scope. This code will fail:
+
+> The benefit of having this restriction is that Rust can prevent data races at compile time. A data race is similar to a race condition and happens when these three behaviors occur:
+
+- Two or more pointers access the same data at the same time.
+- At least one of the pointers is being used to write to the data.
+- There’s no mechanism being used to synchronize access to the data.
+
+### The Rules of References
+
+Let’s recap what we’ve discussed about references:
+
+- At any given time, you can have either one mutable reference or any number of immutable references.
+- References must always be valid.
+
+## Slice type
 
 
+the slice does not have ownership
+
+```
+let s = String::from("hello world");
+
+let hello = &s[0..5];
+let world = &s[6..11];
+```
+
+```
 
 
+let s = String::from("hello");
+
+let prefix = &s[0..2];
+let prefix = &s[..2];
+
+let len = s.len();
+
+let suffix = &s[3..len];
+let suffix = &s[3..];
+```
 
 
+String literals are slices
 
-
-
-
+Arrays also have slices
