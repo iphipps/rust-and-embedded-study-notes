@@ -126,3 +126,34 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 with the ? the Error gets propogated to the calling code.
+
+
+
+
+
+
+
+
+
+## When to Panic
+### Examples, Prototypes and Tests
+When a big matcher on a Result distracts from what is going on.
+
+### When you know more than the compiler
+
+```
+use std::net::IpAddr;
+
+let home: IpAddr = "127.0.0.1".parse().unwrap();
+```
+
+If we know the ip address will never change, but the compiler doesnt
+like user input
+
+### Guidelines for Error Handling
+Panic when your code could end up in a bad state.  Invalid values, contradictory values or missing values, etc.
+- The bad state is not something that’s expected to happen occasionally.
+- Your code after this point needs to rely on not being in this bad state.
+- There’s not a good way to encode this information in the types you use.
+
+panic is also good if you're using a crate and have no control over the library code
