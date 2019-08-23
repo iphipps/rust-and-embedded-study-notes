@@ -1,4 +1,4 @@
-mod calculate_frequency;
+mod day1;
 
 fn main() {
     println!("Hello, world!");
