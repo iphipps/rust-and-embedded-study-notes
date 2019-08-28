@@ -25,4 +25,3 @@ This module will be used to exchange data between the microcontroller in the F3 
 This module has the exact same purpose as the serial module but it sends the data over Bluetooth instead of over USB.
 
 
-

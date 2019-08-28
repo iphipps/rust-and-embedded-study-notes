@@ -16,5 +16,10 @@ These manual links will be useful.
 on a mac run ./02_install_tools.sh
 to install everything.  You'll need to have rust, cargo and brew installed already.
 
+# Confirm it works by running
+
+```
+openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+```
 
 
