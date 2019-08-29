@@ -78,3 +78,37 @@ from the led-roulette dir
 
 where gbd is `arm-none-eabi-gdb`, `gdb-multiarch` or `gdb`
 
+
+when on gbd connect using 
+`target remote :3333`
+
+if you get an error `undefined debug reason 7 - target needs reset`
+try running `monitor reset halt`
+
+Other note the .cargo dir is important
+
+## Debug it
+
+When you're in gbd, there are a bunch of things you can do.
+
+Add breakpoints
+`break main`
+
+`continue`
+
+`step`
+
+`layout src` gives a sort or gui
+
+`tui disable` disabled the gui
+
+at each step you can print variables
+`print x`gives the value
+`print &x` gives the location in memory
+
+`info locals` shows all variables
+
+`layout asm` shows assembly code
+`stepi` steps through the assembly code
+
+`monitor reset halt` brings you back to main

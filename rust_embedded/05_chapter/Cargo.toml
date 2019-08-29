@@ -6,3 +6,8 @@ version = "0.1.0"
 
 [dependencies]
 aux5 = { path = "auxiliary" }
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
