@@ -112,3 +112,18 @@ at each step you can print variables
 `stepi` steps through the assembly code
 
 `monitor reset halt` brings you back to main
+
+
+## The Led and Delay abstractions
+
+
+When in gdb
+
+`break main` sets the breakpoint
+`continue` runs past it 
+`next` runs through the next
+`finish` finishes the current lign and allows you to `info locals`
+you can set the half_period when it is in scope
+`set half_period = 200` to make the led blink quicker.
+
+
