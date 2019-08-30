@@ -126,4 +126,20 @@ When in gdb
 you can set the half_period when it is in scope
 `set half_period = 200` to make the led blink quicker.
 
+## The challenge
 
+Make the leds go in a circle.
+
+## The solution
+
+Check that it runs in release mode.
+
+`$ cargo build --target thumbv7em-none-eabihf --release`
+
+check it's size
+`$ cargo size --target thumbv7em-none-eabihf --bin led-roulette -- -A`
+
+load it onto the board using gdb
+`gdb -q target/thumbv7em-none-eabihf/release/led-roulette`
+
+confirm it works by clicking the reset button
