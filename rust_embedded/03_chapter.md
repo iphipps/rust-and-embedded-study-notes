@@ -4,11 +4,11 @@
 ## Documentation
 
 These manual links will be useful.
-(STM32F3DISCOVERY User Manual)[http://www.st.com/resource/en/user_manual/dm00063382.pdf]
-(STM32F303VC Datasheet)[http://www.st.com/resource/en/datasheet/stm32f303vc.pdf]
-(STM32F303VC Reference Manual)[http://www.st.com/resource/en/reference_manual/dm00043574.pdf]
-(LSM303DLHC)[http://www.st.com/resource/en/datasheet/lsm303dlhc.pdf]
-(L3GD20)[http://www.st.com/resource/en/datasheet/l3gd20.pdf]
+[STM32F3DISCOVERY User Manual](http://www.st.com/resource/en/user_manual/dm00063382.pdf)
+[STM32F303VC Datasheet](http://www.st.com/resource/en/datasheet/stm32f303vc.pdf)
+[STM32F303VC Reference Manual](http://www.st.com/resource/en/reference_manual/dm00043574.pdf)
+[LSM303DLHC](http://www.st.com/resource/en/datasheet/lsm303dlhc.pdf)
+[L3GD20](http://www.st.com/resource/en/datasheet/l3gd20.pdf)
 
 
 ## Tools
