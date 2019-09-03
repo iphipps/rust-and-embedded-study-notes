@@ -106,7 +106,7 @@ Check the api on Vec. There is .push .pop etc.
 
 Core language string type is the string slice `str` or the borrowed form `&str`. String literals are in the programs binary and are string slices.
 
-The String type is part of the standard library. It is growable, mutable, owned, UTF-8 encoded.
+The String type is part of the standard library. It is grow-able, mutable, owned, UTF-8 encoded.
 
 There are other string types in standard library: `OsString, OsStr, CString, CStr`.
 
@@ -158,10 +158,10 @@ that is, the index into a strings' bytes will not always correlate to a valid un
 
 > Another point about UTF-8 is that there are actually three relevant ways to look at strings from Rust’s perspective: as bytes, scalar values, and grapheme clusters (the closest thing to what we would call letters).
 
-Rust allows differrent ways of interpreting raw string data.
+Rust allows different ways of interpreting raw string data.
 
 Lastly, string get character options are expected to always take a constant time but that isn't possible to guarantee
-given the diffent interpretations of string data.
+given the different interpretations of string data.
 
 ### Slicing strings
 
@@ -265,7 +265,7 @@ for (key, value) in &scores {
 ```
 
 ### Updating hash maps
-You can overwrite the old value with new, keep the old value disregard new, only add new if key doesnt have a value or combine in some way.
+You can overwrite the old value with new, keep the old value disregard new, only add new if key does not have a value or combine in some way.
 
 #### Overwriting
 
@@ -313,9 +313,9 @@ println!("{:?}", map);
 // {"world": 2, "hello": 1, "wonderful": 1}
 ```
 
-### Hashing algorithmn
+### Hashing algorithm
 
-The hashing algorithmn that rust uses is not the fastest
-That decision prioritized security/safety (DDOS resiliance) over performance
+The hashing algorithm that rust uses is not the fastest
+That decision prioritized security/safety (DDOS resilience) over performance
 
 

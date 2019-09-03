@@ -121,9 +121,9 @@ fn main() {
 }
 ```
 
-One note that if else is different than javascript.  Conditions must be boolean and not truthy nor falsy.
+One note that if else is different than JavaScript.  Conditions must be boolean and not truthy nor falsey.
 
-Also conditions can be in assigments
+Also conditions can be in assignments
 
 ```
 fn main() {

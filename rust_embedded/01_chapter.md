@@ -11,30 +11,30 @@ It does not intend to use any other boards other than the STM32F3DISCOVERY dev b
 ### What is a microcontroller?
 _a system_ on a chip.
 laptop == processor, RAM sticks, hard drive, ethernet port etc.
-microcontroller has thos components built into a chip.
+microcontroller has those components built into a chip.
 
 ### What can a microcontroller do?
 
-Alot.  _embedded systems_ control breaks of car, wash clothing, print documents, keep you warm, optimize fuel consumption.
+A lot.  _embedded systems_ control breaks of car, wash clothing, print documents, keep you warm, optimize fuel consumption.
 
 They all operate without user intervention even if they expose a ui.  I most of their operation is done on their own.
 
-The _control_ a process. They usually have one or more sensors and one or more acuators.
+The _control_ a process. They usually have one or more sensors and one or more actuators.
 
 ### When should I use a microcontroller?
 
 Why not raspberry Pi or some other OS board?  Cost.  Microcontrollers are cheaper than computers.
-Microcontrollers require fewer compeonents.  The Printed Circuit Board (PCB_ is smaller and cheaper.
-Other rason is power consuption.  If this needs to run on batteries, that makes a big difference.
+Microcontrollers require fewer components.  The Printed Circuit Board (PCB is smaller and cheaper.
+Other reason is power consumption.  If this needs to run on batteries, that makes a big difference.
 
-_real time_ contraints.  Some processes require their controllers response quickly.
-Like quadocopters for example.  If the deadline is not met, the process could end in failure.  A general
+_real time_ constraints.  Some processes require their controllers response quickly.
+Like quadrocopters for example.  If the deadline is not met, the process could end in failure.  A general
 purpose computer running general purpose OS has a bunch running in the background and cannot therefore 
 guarantee that time deadlines are met.
 
 ### When should I _note_ use a microcontroller?
 
-When heavy computations are involved.  Some microcontrollers dont have hardware support for f64 operations.
+When heavy computations are involved.  Some microcontrollers do not have hardware support for f64 operations.
 
 ### Why use Rust and not C?
 

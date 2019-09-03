@@ -5,12 +5,12 @@ _unrecoverable_ -- symptoms of bugs, like trying to access a location beyond the
 
 Most languages don't make this distinction, and they'll handle the same way, but using exceptions.
 
-Rust has Result<T, E> for recoverable errors and `panic!` macro that stops executionwhen it encounters the error.
+Rust has Result<T, E> for recoverable errors and `panic!` macro that stops execution when it encounters the error.
 
 ## `panic!`
 
 When panic occurs, the program unwinds the stack and cleans up the data. 
-But this is alot of work. Alternatively, you could abort the program without cleaning up.
+But this is a lot of work. Alternatively, you could abort the program without cleaning up.
 Then the os will clean it up.
 
 You can set these in Cargo.toml
@@ -19,7 +19,7 @@ You can set these in Cargo.toml
 panic = 'abort'
 ```
 
-You can set the code to panic.  Or it will panice when it does something, like accessing an index on a vec that doesn't exist.
+You can set the code to panic.  Or it will panic when it does something, like accessing an index on a vec that doesn't exist.
 You can run `RUST_BACKTRACE=1 cargo run` for a more verbose output.
 
 ## Recovering Errors with `Result`
@@ -111,7 +111,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
-#### Shortcut for propogating errors
+#### Shortcut for propagating errors
 
 ```
 use std::io;
@@ -125,7 +125,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
     Ok(s)
 }
 ```
-with the ? the Error gets propogated to the calling code.
+with the ? the Error gets propagated to the calling code.
 
 
 
@@ -147,7 +147,7 @@ use std::net::IpAddr;
 let home: IpAddr = "127.0.0.1".parse().unwrap();
 ```
 
-If we know the ip address will never change, but the compiler doesnt
+If we know the ip address will never change, but the compiler does not
 like user input
 
 ### Guidelines for Error Handling

@@ -52,7 +52,7 @@ enum IpAddr {
 }
 ```
 
-the stand libary already has IpAddr, because this is done so frequently.
+the stand library already has IpAddr, because this is done so frequently.
 
 ### New example
 
@@ -79,7 +79,7 @@ m.call();
 ### The `Option` Enum
 
 Advantages over null values.  Rust has no null feature.  Not because null isn't useful but because
-language implementatinos of null are error prone. Assuming a variable is not null is dangerous and commonplace
+language implementations of null are error prone. Assuming a variable is not null is dangerous and commonplace
 
 The `Option<T>` is defined by the standard library:
 

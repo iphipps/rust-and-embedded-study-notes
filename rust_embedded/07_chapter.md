@@ -4,21 +4,21 @@
 
 _register_, e.g. 0x48001018 is the address, is a special region of memory that controls 
 a _peripheral_.
-_peripherals_ are pieces of electronics that sit nect to the processor and provides
-the processro with extra funcvtionality.  The processor can only do math and logic.
+_peripherals_ are pieces of electronics that sit next to the processor and provides
+the processor with extra functionality.  The processor can only do math and logic.
 
-This register, 0x48001018, controls General Purpose Input/Outpit (GPIO) pins and can be used
+This register, 0x48001018, controls General Purpose Input/Output (GPIO) pins and can be used
 to drive those pins _low_ or _high_.
 
-## An aside: LEDs, digital putputs and boltage lebels.
+## An aside: LEDs, digital outputs and voltage levels.
 
 A pin is electrical contact.
 
-Some of those pins are connects to LEDs, Light Emitting Diodes, whill emit light
+Some of those pins are connects to LEDs, Light Emitting Diodes, will emit light
 when voltage is applied with a certain polarity.
 
-The microcontroller has conencted those LEDs with the right polarity so all we need is output 
-non-zero boltate.  Those pins can only output two voltage levels: "low", 0 or "high", 3 volts.
+The microcontroller has connected those LEDs with the right polarity so all we need is output 
+non-zero voltage.  Those pins can only output two voltage levels: "low", 0 or "high", 3 volts.
 
 > These "low" and "high" states map directly to the concept of digital logic. "low" is 0 or false and "high" is 1 or true. This is why this pin configuration is known as digital output.
 
@@ -50,7 +50,7 @@ One note, the code uses an `unsafe` block.  This is because it referenced a raw 
 ## (mis)Optimization
 
 LLVM - compilers' backend / optimizer merges writes to a register because it doesn't know we're working 
-with registers.  The risk is that that changes the behavior of the profram.
+with registers.  The risk is that that changes the behavior of the program.
 
 to avoid that we can use bolitale operations instead of read/writes
 e.g. `ptr::write_volatile(GPIOE_BSRR as *mut u32, 1 << 9);`
@@ -116,7 +116,7 @@ $1 = cortex_m_rt::ExceptionFrame {
 }
 ```
 
-the pc, Program Counter, points to the instruction that generated the except.  to dissassemble
+the pc, Program Counter, points to the instruction that generated the except.  to disassemble
 
 ```
 (gdb) disassemble /m ef.pc
@@ -143,11 +143,11 @@ Dump of assembler code for function core::ptr::read_volatile:
 End of assembler dump.
 ```
 
-The ecepted was caused by ldr r0.  
+The exception was caused by ldr r0.  
 
 ## Spooky action at a distance.  
 
-`BSRR` can control pins of Port E.  ODR can also control the value of pins.  ODR also lets you retrieve teh current outputn status of Port E,
+`BSRR` can control pins of Port E.  ODR can also control the value of pins.  ODR also lets you retrieve the current output status of Port E,
 
 consider this:
 ```
@@ -219,7 +219,7 @@ ODR = 0x0a00
 ODR = 0x0800
 ```
 
-ODR's value changes everytime BSRR is written to.
+ODR's value changes every time BSRR is written to.
 
 ## Type safe manipulation
 
@@ -235,9 +235,9 @@ But also, don't work with hexadecimal addresses.
 `aux7::init()` has a type safe API to manipulate the registers of the GPIOE peripheral.
 
 In this API each register block is modeled as a `struct` and each field represents a register.  Each 
-field is a new type that exposes a comination of `read, write, modify`.  They don't take primitive values.
+field is a new type that exposes a combination of `read, write, modify`.  They don't take primitive values.
 
-Instead the take a newtype that is contructed using a builder pattern and that prevent the modifcation of 
+Instead the take a newtype that is constructed using a builder pattern and that prevent the modification of 
 reserved parts of the register.
 
 Consider this:
@@ -279,7 +279,7 @@ $1 = (stm32f30x::gpioc::RegisterBlock *) 0x48001000
 but when we `(gdb) print *gpioe` we get the full view of the register block.
 
 There is a System View Description file using the svd2rust tool.  SVD is cml that 
-microcontroller vendors prodivude for register maps of their microcontroller.
+microcontroller vendors provide for register maps of their microcontroller.
 
 
 

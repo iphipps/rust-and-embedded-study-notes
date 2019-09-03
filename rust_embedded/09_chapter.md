@@ -1,6 +1,6 @@
 # Clocks and timers
 
-We get Led abstaction back but will need to figure out Delay,
+We get Led abstraction back but will need to figure out Delay,
 
 ## for loop delays
 

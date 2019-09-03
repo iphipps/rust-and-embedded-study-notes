@@ -142,7 +142,7 @@ fn main() {
 }
 ```
 Methods can take ownership of self, borrow self immutably as we’ve done here, or borrow self mutably, just as they can any other parameter.
-In the example above, we've choisen `&self` because we don't want to take ownership, it's read only.  But if we want to change it, we'll use `&mut self` as first param.  Having methods take ownership is rare, but could be useful if we want to transform self into something else and prevent the calling from using the original instance.
+In the example above, we've chosen `&self` because we don't want to take ownership, it's read only.  But if we want to change it, we'll use `&mut self` as first param.  Having methods take ownership is rare, but could be useful if we want to transform self into something else and prevent the calling from using the original instance.
 
 
 ```

@@ -1,6 +1,6 @@
 # Understanding Ownership
 
-Rust is memory safe without a gardbage collector.
+Rust is memory safe without a garbage collector.
 `borrowing, slices and data in memory`
 
 ## What is ownership?
@@ -22,7 +22,7 @@ For functions, arguments, including pointers to heap locations AND local variabl
 
 ### Ownership rules
 
-- values have an _owner_ valiable
+- values have an _owner_ variable
 - there can only be one owner
 - value is dropped when owner goes out of scope
 
@@ -103,7 +103,7 @@ println!("s1 = {}, s2 = {}", s1, s2);
 // works as expected
 ```
 
-#### Stack-Onlt Data: Copy
+#### Stack-Only Data: Copy
 
 ```
 let x = 5;
@@ -221,7 +221,7 @@ fn calculate_length(s: &String) -> usize { // s is a reference to a String
 
 > The &s1 syntax lets us create a reference that refers to the value of s1 but does not own it. Because it does not own it, the value it points to will not be dropped when the reference goes out of scope.
 
-Note you cannot modify borrowed value. Above calculate_length returns a new value derrived from the borrowed String, but does not attempt to modify it.
+Note you cannot modify borrowed value. Above calculate_length returns a new value derived from the borrowed String, but does not attempt to modify it.
 
 ### Mutable references
 

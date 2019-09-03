@@ -5,7 +5,7 @@
 Test functions do the following:
 1. Set up needed data/state.
 2. Runs code you want to test.
-3. Assert results are as exxpected.
+3. Assert results are as expected.
 
 `test`, `should_panic` and macros.
 
@@ -25,13 +25,13 @@ $ cd adder
 
 ### Running Tests in parallel or consecutively
 
-`$ cargo test -- --test-threads=1` runs consecutly
-default is in parellel
+`$ cargo test -- --test-threads=1` runs consecutively
+default is in parallel
 
 ### Showing function output
 
 `cargo test -- --nocapture` will allow you to see output captured in run functions
-like println! statemtents
+like println! statements
 
 ### Running subset of tests by name
 

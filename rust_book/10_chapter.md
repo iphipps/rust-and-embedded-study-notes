@@ -1,6 +1,6 @@
 # Generic Types, traits and lifetimes,
 
-First part there is a function that was refactroed to make duplicate share a function. Here is the end result
+First part there is a function that was refactored to make duplicate share a function. Here is the end result
 
 ```
 fn largest(list: &[i32]) -> i32 {
@@ -217,7 +217,7 @@ println!("1 new tweet: {}", tweet.summarize());
 // prints 1 new tweet: horse_ebooks: of course, as you probably already know, people
 ```
 
-We cannot implement external trails on extenal types. Needs to be in scope. But we can
+We cannot implement external trails on external types. Needs to be in scope. But we can
 bring traits in to scope. `use aggregator::summary`
 
 ### Default Implementations
@@ -322,7 +322,7 @@ fn main() {
 }
 ```
 
-### Using Trais bounds for conditional methods
+### Using Trait bounds for conditional methods
 
 > By using a trait bound with an impl block that uses generic type parameters, we can implement methods conditionally for types that implement the specified traits. For example, the type Pair<T> in Listing 10-16 always implements the new function. But Pair<T> only implements the cmp_display method if its inner type T implements the PartialOrd trait that enables comparison and the Display trait that enables printing.
 
@@ -571,7 +571,7 @@ Are string literals are 'static' and live the whole length of the program.
 All statics are written direct to binary and live as long as the program.
 
 
-### Generic Type Paramters, Trait BOunds, Lifetimes Together
+### Generic Type Parameters, Trait BOunds, Lifetimes Together
 
 all in one function
 

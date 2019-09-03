@@ -22,7 +22,7 @@ It changes the linking process.  This is required by `cortex-m-rt`.
 
 ## Build it
 
-This needs to be cross compiled because we're developing on a laptio for bare metal.
+This needs to be cross compiled because we're developing on a laptop for bare metal.
 We'll need a `--target` flag for `rustc` or `cargo`.
 
 For microcontroller in the F3, there is a Cortex-M4F processor.  `rustc` knows how to cross compile
