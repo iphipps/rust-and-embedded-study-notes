@@ -85,11 +85,44 @@ Synchronous and asynchronous
 
 ### Asynchronous serial communication
 
-Transmitter and receiver agree on data rate, voltage level and how to interpret voltage lebel.
+Transmitter and receiver agree on data rate, voltage level and how to interpret voltage level.
 
 
 ### Synchronous serial communication
 I2C or SPI are most common.  Used for simpler devices with no internal clock
 crystal and few memory registers.
+
+
+## PAN LAN WAN
+
+### PAN - Personal Area Network and Wireless Sensor Network
+
+#### Bluetooth
+short range 1-1000 meters
+1Mbit/s
+
+### 6LoWPAN
+short range 10s of meters
+250kbps
+
+### WLAN - wireless local area network
+depends on building and access points
+54Mbps – 600Mbps
+
+most wifi networks are this
+
+### Wireless Wide Area Network (WWAN)
+
+#### GPRS general packet radio services
+
+#### LTE Long Term Evolution
+3g cellular network system with km as the range
+
+### LPWAN - Low Power Wide Area Network
+LoRa, Sigfox and weightless
+
+
+
+
 
 
