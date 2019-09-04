@@ -31,7 +31,7 @@ Lots of sensors
 ### Transducers
 
 How are devices able to perceive things that are not electrical in nature: wind speed, temperature, water.
-Transducers convert one form of energy to another. E.g. quartz crystals produce voltage from mechanic shape. They're
+Transducers convert one form of energy to another. E.g. Quartz crystals produce voltage from mechanic shape. They're
 used in oscillators.
 
 They can change physical phenomena to voltage or resistance.
@@ -40,7 +40,7 @@ Sometimes output of transducers need to be conditioned to a voltage that is perc
 
 Transducers	- Materials or devices that have the property of converting one kind of energy into another.
 
-Strain Gauge - Pressure-sensitive resistive bridge networks that are external biased in such a way as to produce an output voltage in proportion to the amount of force and/or strain being applied to the sensor (ElectronicsTutorials).
+Strain Gauge - Pressure-sensitive resistive bridge networks that are external biased in such a way as to produce an output voltage in proportion to the amount of force and/or strain being applied to the sensor (Electronics Tutorials).
 
 Negative coefficient (and positive coefficient)	- With a negative coefficient correlation - if the analogue phenomenon increases, then the physical property decreases. With positive correlation - if the phenomenon increases, the property also increases.
 
@@ -48,7 +48,7 @@ Signal conditioning	- Improving the quality of the signals going to ADCs or prod
 
 Instrumentation amplifiers - Instrumentation amplifiers take the difference of potential between their two inputs (a very small signal), and amplify it to produce a voltage that can be fed into an ADC.
 
-Wheatstone Bridge	- Interconnects four resistors, forming a bridge, and is used for the measurement of an unknown resistance (CircuitDigest)
+Wheatstone Bridge	- Interconnects four resistors, forming a bridge, and is used for the measurement of an unknown resistance (Circuit Digest)
 
 
 *A Sensor* is the combination of a transducer and it's signal conditioner.
@@ -72,7 +72,7 @@ We can generally classify them according to their properties:
 Read this [whitepaper](http://www.ni.com/en-us/innovations/white-papers/13/sensor-terminology.html) for these terms:
 
 - Sensitivity = Minimum input of physical parameter that will create a detectable output change.
-- Precision = the reproducibility of the result
+- Precision = the reproduce-ability of the result
 - Range = Max and Min values that can be measured.
 - Accuracy = Max difference between actual value and the value indicated at the output
 - Linearity = An expression of the extent to which the actual measured curve departs from the ideal
@@ -165,12 +165,56 @@ to pause communication (clock stretching) which ensures the slave is protected f
 
 #### Handshake exchange and timing
 
+Each message begins with a START and a STOP.
+- Single message where master writes data to a slave.
+- Single message where master reads data to a slave.
+- Combined messages, where a master issues two or more reads ands or writes to one of more slaves.
+
+A HIGH to LOW transition on the SDA line while SCL is HIGH indicates a START condition. This is always initiated by the Master.
+
+A LOW to HIGH transition on the SDA line while SCL is HIGH defines a STOP condition. See the following timing diagram.
+
+7 bit address identify devices.  Theoretically up to 128 devices can be connected to same bus
+But some are reserved so really it is 112.
 
 
 
 
+### SPI - Serial Peripheral Interface
+synchronous master-slave full-duplex interface is popular for short distance communication.  There is
+no spec for the protocol so message sizes and data rates vary.
+
+#### Connections
+
+4 wires minimum
+- SCLK - Serial Clock - sent by master to slaves
+- MOSI - master out, slave in.
+- MISO - master in, slave out.
+- SS - Slave Select -- unique to each slave. As more slaves are added, more of these get added.
+
+#### Clock Mechanism
+
+SPI modes 
+0 - starts low - data received falling edge of clock
+1 - starts low - data received rising edge of clock
+2 - starts high - data received falling edge of clock
+3 - starts high - data received rising edge of clock
+
+Devises then use rising or falling to receive/read and the opposite to write/send
+
+#### Handshake exchange and timing
+- SS - held high and lowered to indicate when a data line should be written to or read from
+- MOSI - held high or low by master before a clock edge.
+- MISO - held high or low by slave before a clock edge.
+- SCLK - clock signal sent by the master to any slaves.
 
 
+## Sensor Communication
+
+Turbidity sensor detects particles in a water solution.
+Sensor communication differs based on how the sensor was set up. 
+But it seems as if a microcontroller can communicate with multiple using different
+communication protocols.
 
 
 
