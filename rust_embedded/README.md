@@ -1,0 +1,11 @@
+# Rust Embedded Book notes
+(01_chapter)[./01_chapter.md]
+(02_chapter)[./02_chapter.md]
+(03_chapter)[./03_chapter.md]
+(04_chapter)[./04_chapter.md]
+(05_chapter)[./05_chapter.md]
+(06_chapter)[./06_chapter.md]
+(07_chapter)[./07_chapter.md]
+(08_chapter)[./08_chapter.md]
+(09_chapter)[./09_chapter.md]
+(10_chapter)[./10_chapter.md]

@@ -8,5 +8,5 @@ including some idioms like
 
 ## Hardware requirements
 
-(STM32F3DISCOVERY Board)[https://www.st.com/en/evaluation-tools/stm32f3discovery.html]
+[STM32F3DISCOVERY Board](https://www.st.com/en/evaluation-tools/stm32f3discovery.html)
 
