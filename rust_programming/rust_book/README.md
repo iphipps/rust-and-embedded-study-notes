@@ -1,3 +1,12 @@
+# Installing Rust
+
+First get rustup `curl https://sh.rustup.rs -sSf | sh`
+then add rust to your path
+`export PATH="$HOME/.cargo/bin:$PATH"`
+
+probably should update as well
+`rustup update`
+
 # The Rust Book
 
 ## Notes
